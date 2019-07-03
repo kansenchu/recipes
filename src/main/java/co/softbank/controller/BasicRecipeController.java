@@ -7,7 +7,7 @@ public class BasicRecipeController implements RecipeController {
 
   @Override
   public String getAllRecipes() {
-    return null;
+    return "";
   }
 
     
