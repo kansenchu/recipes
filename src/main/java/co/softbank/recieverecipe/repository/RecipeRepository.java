@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RecipeRepository {
   public List<Recipe> getAllRecipes();
+
+  public Recipe getOneRecipe(int id);
 }

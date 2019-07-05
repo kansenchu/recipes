@@ -33,7 +33,8 @@ public class BasicRecipeControllerTest {
 
   @Test
   public void getOneRecipe() {
-    assertEquals(recipeController.getRecipe(), new RecipeResponse("", Arrays.asList(TestObjectRepo.recipeOne)));
+    when(recipeRepository.getOneRecipe(1)).thenReturn(TestObjectRepo.recipeOne);
+    assertEquals(recipeController.getRecipe(), TestObjectRepo.recipeOneResponse);
   }
 
 }
