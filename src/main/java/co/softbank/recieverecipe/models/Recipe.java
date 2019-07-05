@@ -4,10 +4,9 @@ import java.sql.Timestamp;
 
 import javax.validation.constraints.NotNull;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -16,10 +15,10 @@ import lombok.RequiredArgsConstructor;
  * @author pikachoo
  *
  */
-@Data
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
+@EqualsAndHashCode
 public class Recipe {
   @NotNull
   private final int id;
