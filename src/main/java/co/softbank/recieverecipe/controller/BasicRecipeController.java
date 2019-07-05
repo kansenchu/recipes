@@ -6,23 +6,31 @@ import co.softbank.recieverecipe.responses.AllRecipeResponse;
 import co.softbank.recieverecipe.responses.RecipeResponse;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Arrays;
-
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 基本のレシピコントローラを示すクラス。
+ */
 @RestController
 @RequiredArgsConstructor
 public class BasicRecipeController implements RecipeController {
 
   final RecipeRepository recipeRepository;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public AllRecipeResponse getAllRecipes() {
     return new AllRecipeResponse(recipeRepository.getAllRecipes());
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public RecipeResponse getRecipe(int id) {
-    return new RecipeResponse("", Arrays.asList(recipeRepository.getOneRecipe(id)));
+    return new RecipeResponse("", recipeRepository.getRecipe(id));
   }
     
 }

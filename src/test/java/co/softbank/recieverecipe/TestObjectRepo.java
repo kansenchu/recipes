@@ -13,6 +13,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * テストオブジェクトを作成、保存するクラス。
+ */
 public class TestObjectRepo {
   public static Recipe recipeOne = Recipe.builder()
       .id(1)
@@ -50,7 +53,7 @@ public class TestObjectRepo {
   public static List<Recipe> baseRecipeList = Arrays.asList(recipeOne, recipeTwo);
   public static AllRecipeResponse baseAllRecipesResponse = new AllRecipeResponse(baseRecipeList);
 
-  public static RecipeResponse recipeOneResponse = new RecipeResponse("", Arrays.asList(TestObjectRepo.recipeOne));
+  public static RecipeResponse recipeOneResponse = new RecipeResponse("", TestObjectRepo.recipeOne);
   
   private static long getMillisecondFromDateString(String dateString) {
     return LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))

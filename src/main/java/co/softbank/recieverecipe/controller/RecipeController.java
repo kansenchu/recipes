@@ -1,6 +1,7 @@
 package co.softbank.recieverecipe.controller;
 
 import co.softbank.recieverecipe.responses.AllRecipeResponse;
+import co.softbank.recieverecipe.responses.RecipeResponse;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,5 +19,13 @@ public interface RecipeController {
    */
   @GetMapping
   public AllRecipeResponse getAllRecipes();
+
+  /**
+   * 指定したレシピを返すメソッド。
+   * @param id 取得したいレシピのid
+   * @return 取得したいレシピを包むレスポンス。
+   */
+  @GetMapping
+  public RecipeResponse getRecipe(int id);
 
 }
