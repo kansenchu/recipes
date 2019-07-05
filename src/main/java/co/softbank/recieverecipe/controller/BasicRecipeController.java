@@ -3,7 +3,10 @@ package co.softbank.recieverecipe.controller;
 import co.softbank.recieverecipe.models.Recipe;
 import co.softbank.recieverecipe.repository.RecipeRepository;
 import co.softbank.recieverecipe.responses.AllRecipeResponse;
+import co.softbank.recieverecipe.responses.RecipeResponse;
 import lombok.RequiredArgsConstructor;
+
+import java.util.Arrays;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +21,8 @@ public class BasicRecipeController implements RecipeController {
     return new AllRecipeResponse(recipeRepository.getAllRecipes());
   }
 
-  public Object[] getRecipe() {
-    return null;
+  public RecipeResponse getRecipe(int id) {
+    return new RecipeResponse("", Arrays.asList(recipeRepository.getOneRecipe(id)));
   }
     
 }
