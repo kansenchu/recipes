@@ -15,7 +15,7 @@ public class BasicRecipeController implements RecipeController {
 
   @Override
   public AllRecipeResponse getAllRecipes() {
-    return new AllRecipeResponse();
+    return new AllRecipeResponse(recipeRepository.getAllRecipes());
   }
     
 }
