@@ -17,5 +17,9 @@ public class BasicRecipeController implements RecipeController {
   public AllRecipeResponse getAllRecipes() {
     return new AllRecipeResponse(recipeRepository.getAllRecipes());
   }
+
+  public Object[] getRecipe() {
+    return null;
+  }
     
 }

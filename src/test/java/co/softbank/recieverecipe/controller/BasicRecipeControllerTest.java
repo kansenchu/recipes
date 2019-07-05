@@ -28,4 +28,9 @@ public class BasicRecipeControllerTest {
     assertEquals(recipeController.getAllRecipes(), TestObjectRepo.baseAllRecipesResponse);
   }
 
+  @Test
+  public void getOneRecipe() {
+    assertEquals(recipeController.getRecipe(), null);
+  }
+
 }
