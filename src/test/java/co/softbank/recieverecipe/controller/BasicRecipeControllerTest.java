@@ -49,4 +49,10 @@ public class BasicRecipeControllerTest {
     assertEquals(recipeController.editRecipe(1, TestObjectRepo.newRecipe), TestObjectRepo.editedRecipeResponse);
   }
 
+  @Test
+  public void deleteRecipe() {
+    recipeController.deleteRecipe(1);
+    verify(recipeRepository).deleteRecipe(1);
+  }
+
 }

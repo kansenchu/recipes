@@ -49,5 +49,8 @@ public class BasicRecipeController implements RecipeController {
   public RecipeResponse editRecipe(int i, Recipe editedRecipe) {
     return new RecipeResponse(RecipeResponse.Message.UPDATED, recipeRepository.editRecipe(i, editedRecipe));
   }
+
+  public void deleteRecipe(int i) {
+  }
     
 }
