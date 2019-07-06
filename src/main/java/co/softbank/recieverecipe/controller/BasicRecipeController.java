@@ -38,8 +38,7 @@ public class BasicRecipeController implements RecipeController {
    */
   @Override
   public RecipeResponse addRecipe(Recipe newRecipe) {
-    recipeRepository.addRecipe(newRecipe);
-    return new RecipeResponse("", null);
+    return new RecipeResponse("", recipeRepository.addRecipe(newRecipe));
   }
     
 }
