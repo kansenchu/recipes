@@ -30,7 +30,7 @@ public class BasicRecipeController implements RecipeController {
    */
   @Override
   public RecipeResponse getRecipe(int id) {
-    return new RecipeResponse("Recipe details by id", recipeRepository.getRecipe(id));
+    return new RecipeResponse(RecipeResponse.Message.RETRIEVED, recipeRepository.getRecipe(id));
   }
 
   /**
@@ -38,7 +38,7 @@ public class BasicRecipeController implements RecipeController {
    */
   @Override
   public RecipeResponse addRecipe(Recipe newRecipe) {
-    return new RecipeResponse("Recipe successfully created!", recipeRepository.addRecipe(newRecipe));
+    return new RecipeResponse(RecipeResponse.Message.CREATED, recipeRepository.addRecipe(newRecipe));
   }
     
 }
