@@ -51,6 +51,7 @@ public class BasicRecipeController implements RecipeController {
   }
 
   public void deleteRecipe(int i) {
+    recipeRepository.deleteRecipe(1);
   }
     
 }
