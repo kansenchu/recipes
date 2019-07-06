@@ -51,14 +51,14 @@ public class BasicRecipeControllerTest {
 
   @Test
   public void deleteRecipe() {
-    recipeController.deleteRecipe(1);
-    verify(recipeRepository).deleteRecipe(1);
+    when(recipeRepository.deleteRecipe(1)).thenReturn(TestObjectRepo.recipeOne);
+    assertEquals(recipeController.deleteRecipe(1), TestObjectRepo.deletedRecipeOneResponse);
   }
 
   @Test
   public void deleteAnotherRecipe() {
-    recipeController.deleteRecipe(2);
-    verify(recipeRepository).deleteRecipe(2);
+    when(recipeRepository.deleteRecipe(2)).thenReturn(TestObjectRepo.recipeOne);
+    assertEquals(recipeController.deleteRecipe(2), TestObjectRepo.deletedRecipeOneResponse);
   }
 
 }

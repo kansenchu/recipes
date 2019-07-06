@@ -55,6 +55,7 @@ public class TestObjectRepo {
   public static AllRecipeResponse baseAllRecipesResponse = new AllRecipeResponse(baseRecipeList);
 
   public static RecipeResponse recipeOneResponse = new RecipeResponse(RecipeResponse.Message.RETRIEVED, TestObjectRepo.recipeOne);
+  public static RecipeResponse deletedRecipeOneResponse = new RecipeResponse(RecipeResponse.Message.DELETED, TestObjectRepo.recipeOne);
   public static RecipeResponse newRecipeResponse = new RecipeResponse(RecipeResponse.Message.CREATED, TestObjectRepo.newRecipe);
   public static RecipeResponse editedRecipeResponse = new RecipeResponse(RecipeResponse.Message.UPDATED, TestObjectRepo.editedRecipe);
   
