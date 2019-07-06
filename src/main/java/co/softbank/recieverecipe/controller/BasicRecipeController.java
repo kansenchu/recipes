@@ -32,5 +32,8 @@ public class BasicRecipeController implements RecipeController {
   public RecipeResponse getRecipe(int id) {
     return new RecipeResponse("", recipeRepository.getRecipe(id));
   }
+
+  public void addRecipe(Recipe newRecipe) {
+  }
     
 }

@@ -19,4 +19,6 @@ public interface RecipeRepository {
    * @return 指定したレシピオブジェクト
    */
   public Recipe getRecipe(int id);
+
+  public Object addRecipe();
 }

@@ -1,13 +1,11 @@
 package co.softbank.recieverecipe.controller;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import java.util.Arrays;
 
 import co.softbank.recieverecipe.TestObjectRepo;
 import co.softbank.recieverecipe.repository.RecipeRepository;
-import co.softbank.recieverecipe.responses.RecipeResponse;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +33,12 @@ public class BasicRecipeControllerTest {
   public void getOneRecipe() {
     when(recipeRepository.getRecipe(1)).thenReturn(TestObjectRepo.recipeOne);
     assertEquals(recipeController.getRecipe(1), TestObjectRepo.recipeOneResponse);
+  }
+
+  @Test
+  public void addRecipe() {
+    recipeController.addRecipe(TestObjectRepo.newRecipe);
+    verify(recipeRepository.addRecipe());
   }
 
 }
