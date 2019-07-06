@@ -54,7 +54,7 @@ public class BasicRecipeController implements RecipeController {
    */
   @Override
   public RecipeResponse deleteRecipe(int i) {
-    return new RecipeResponse(RecipeResponse.Message.RETRIEVED, recipeRepository.deleteRecipe(i));
+    return new RecipeResponse(RecipeResponse.Message.DELETED, recipeRepository.deleteRecipe(i));
   }
     
 }
