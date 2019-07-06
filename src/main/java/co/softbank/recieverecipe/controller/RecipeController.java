@@ -5,6 +5,7 @@ import co.softbank.recieverecipe.responses.AllRecipeResponse;
 import co.softbank.recieverecipe.responses.RecipeResponse;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,4 +38,13 @@ public interface RecipeController {
    */
   @PostMapping
   public RecipeResponse addRecipe(Recipe recipe);
+
+  /**
+   * レシピを変換することを取り受けるメソッド。
+   * @param id 変換したいレシピのid
+   * @param recipe 変更したレシピの情報
+   * @return 変更したレシピ
+   */
+  @PatchMapping
+  public RecipeResponse editRecipe(int id, Recipe recipe);
 }

@@ -27,6 +27,12 @@ public interface RecipeRepository {
    */
   public Recipe addRecipe(Recipe newRecipe);
 
-  public void editRecipe(int i, Recipe editedRecipe);
+  /**
+   * レシピを変更するメソッド。
+   * @param i 変更したいレシピのid
+   * @param editedRecipe 変更したいレシピの内容
+   * @return 実際に変更したレシピのオブジェクト
+   */
+  public Recipe editRecipe(int i, Recipe editedRecipe);
 
 }

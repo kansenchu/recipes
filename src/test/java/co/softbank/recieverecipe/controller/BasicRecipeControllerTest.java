@@ -43,6 +43,7 @@ public class BasicRecipeControllerTest {
     assertEquals(recipeController.addRecipe(TestObjectRepo.newRecipe), TestObjectRepo.newRecipeResponse);
   }
 
+  @Test
   public void editRecipe() {
     recipeController.editRecipe(1, TestObjectRepo.newRecipe);
     verify(recipeRepository).editRecipe(1, null);
