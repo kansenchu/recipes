@@ -20,5 +20,5 @@ public interface RecipeRepository {
    */
   public Recipe getRecipe(int id);
 
-  public Object addRecipe();
+  public Object addRecipe(Recipe newRecipe);
 }
