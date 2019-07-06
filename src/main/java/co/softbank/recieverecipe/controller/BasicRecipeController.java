@@ -47,7 +47,7 @@ public class BasicRecipeController implements RecipeController {
    */
   @Override
   public RecipeResponse editRecipe(int i, Recipe editedRecipe) {
-    return new RecipeResponse(RecipeResponse.Message.RETRIEVED, recipeRepository.editRecipe(i, null));
+    return new RecipeResponse(RecipeResponse.Message.UPDATED, recipeRepository.editRecipe(i, editedRecipe));
   }
     
 }
