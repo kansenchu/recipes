@@ -55,4 +55,10 @@ public class BasicRecipeControllerTest {
     verify(recipeRepository).deleteRecipe(1);
   }
 
+  @Test
+  public void deleteAnotherRecipe() {
+    recipeController.deleteRecipe(2);
+    verify(recipeRepository).deleteRecipe(2);
+  }
+
 }
