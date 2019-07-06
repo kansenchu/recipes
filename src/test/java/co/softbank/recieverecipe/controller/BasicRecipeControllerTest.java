@@ -40,7 +40,7 @@ public class BasicRecipeControllerTest {
   @Test
   public void addRecipe() {
     recipeController.addRecipe(TestObjectRepo.newRecipe);
-    verify(recipeRepository.addRecipe(any(Recipe.class)));
+    verify(recipeRepository).addRecipe(any(Recipe.class));
   }
 
 }

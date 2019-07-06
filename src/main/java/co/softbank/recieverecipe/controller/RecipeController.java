@@ -1,9 +1,11 @@
 package co.softbank.recieverecipe.controller;
 
+import co.softbank.recieverecipe.models.Recipe;
 import co.softbank.recieverecipe.responses.AllRecipeResponse;
 import co.softbank.recieverecipe.responses.RecipeResponse;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -28,4 +30,11 @@ public interface RecipeController {
   @GetMapping
   public RecipeResponse getRecipe(int id);
 
+  /**
+   * 新しいレシピを登録するメソッド。
+   * @param recipe 追加したいレシピオブジェクト
+   * @return 登録したレシピのレスポンス
+   */
+  @PostMapping
+  public RecipeResponse addRecipe(Recipe recipe);
 }

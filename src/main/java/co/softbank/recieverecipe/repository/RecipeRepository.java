@@ -20,5 +20,10 @@ public interface RecipeRepository {
    */
   public Recipe getRecipe(int id);
 
-  public Object addRecipe(Recipe newRecipe);
+  /**
+   * レシピを追加するメソッド。
+   * @param newRecipe 新しいレシピのオブジェクト
+   * @return 実際に保存されたレシピオブジェクト
+   */
+  public Recipe addRecipe(Recipe newRecipe);
 }

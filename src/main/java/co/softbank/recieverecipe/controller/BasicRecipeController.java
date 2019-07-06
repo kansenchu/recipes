@@ -33,7 +33,13 @@ public class BasicRecipeController implements RecipeController {
     return new RecipeResponse("", recipeRepository.getRecipe(id));
   }
 
-  public void addRecipe(Recipe newRecipe) {
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public RecipeResponse addRecipe(Recipe newRecipe) {
+    recipeRepository.addRecipe(newRecipe);
+    return new RecipeResponse("", null);
   }
     
 }
