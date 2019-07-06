@@ -26,4 +26,7 @@ public interface RecipeRepository {
    * @return 実際に保存されたレシピオブジェクト
    */
   public Recipe addRecipe(Recipe newRecipe);
+
+  public void editRecipe(int i, Recipe editedRecipe);
+
 }
