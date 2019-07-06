@@ -53,9 +53,9 @@ public class TestObjectRepo {
   public static List<Recipe> baseRecipeList = Arrays.asList(recipeOne, recipeTwo);
   public static AllRecipeResponse baseAllRecipesResponse = new AllRecipeResponse(baseRecipeList);
 
-  public static RecipeResponse recipeOneResponse = new RecipeResponse("Recipe details by id", TestObjectRepo.recipeOne);
+  public static RecipeResponse recipeOneResponse = new RecipeResponse(RecipeResponse.Message.RETRIEVED, TestObjectRepo.recipeOne);
 
-  public static Object newRecipeResponse = new RecipeResponse("Recipe successfully created!", TestObjectRepo.newRecipe);
+  public static Object newRecipeResponse = new RecipeResponse(RecipeResponse.Message.CREATED, TestObjectRepo.newRecipe);
   
   private static long getMillisecondFromDateString(String dateString) {
     return LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))

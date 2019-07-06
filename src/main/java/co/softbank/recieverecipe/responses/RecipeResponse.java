@@ -14,13 +14,28 @@ import lombok.RequiredArgsConstructor;
 @EqualsAndHashCode
 public class RecipeResponse {
 
-  final String message;         /** 返すメッセージ。 */
+  final Message message;         /** 返すメッセージ。 */
   final List<Recipe> recipe;    /** 実際にレシピリスト。 */
+
+  public enum Message {
+    RETRIEVED("Recipe details by id"),
+    CREATED("Recipe successfully created!");
+
+    private String message;
+    
+    private Message(String message) {
+      this.message = message;
+    }
+
+    public String getMessage() {
+      return message;
+    }
+  }
 
   /**
    * コンストラクタ。レシピを自動でリスト化にします。
    */
-  public RecipeResponse(String message, Recipe recipe) {
+  public RecipeResponse(Message message, Recipe recipe) {
     this.message = message;
     this.recipe = Arrays.asList(recipe);
   }
