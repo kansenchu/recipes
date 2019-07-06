@@ -39,6 +39,6 @@ public interface RecipeRepository {
    * レシピを削除するメソッド。
    * @param i 削除したいレシピのid
    */
-  public void deleteRecipe(int i);
+  public Recipe deleteRecipe(int i);
 
 }

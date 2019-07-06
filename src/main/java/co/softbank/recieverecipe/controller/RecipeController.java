@@ -4,6 +4,7 @@ import co.softbank.recieverecipe.models.Recipe;
 import co.softbank.recieverecipe.responses.AllRecipeResponse;
 import co.softbank.recieverecipe.responses.RecipeResponse;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,4 +48,12 @@ public interface RecipeController {
    */
   @PatchMapping
   public RecipeResponse editRecipe(int id, Recipe recipe);
+
+  /**
+   * レシピを削除するメソッド。
+   * @param id 削除したいレシピのid
+   * @return 削除されたレシピの情報を含んでるレスポンス
+   */
+  @DeleteMapping
+  public RecipeResponse deleteRecipe(int id);
 }

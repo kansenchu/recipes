@@ -43,15 +43,18 @@ public class BasicRecipeController implements RecipeController {
 
   /**
    * {@inheritDoc}
- * @return 
    */
   @Override
   public RecipeResponse editRecipe(int i, Recipe editedRecipe) {
     return new RecipeResponse(RecipeResponse.Message.UPDATED, recipeRepository.editRecipe(i, editedRecipe));
   }
 
-  public void deleteRecipe(int i) {
-    recipeRepository.deleteRecipe(i);
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public RecipeResponse deleteRecipe(int i) {
+    return new RecipeResponse(RecipeResponse.Message.RETRIEVED, recipeRepository.deleteRecipe(i));
   }
     
 }
