@@ -39,8 +39,8 @@ public class BasicRecipeControllerTest {
 
   @Test
   public void addRecipe() {
-    recipeController.addRecipe(TestObjectRepo.newRecipe);
-    verify(recipeRepository).addRecipe(any(Recipe.class));
+    when(recipeRepository.addRecipe(TestObjectRepo.newRecipe)).thenReturn(TestObjectRepo.newRecipe);
+    assertEquals(recipeController.addRecipe(TestObjectRepo.newRecipe), TestObjectRepo.newRecipeResponse);
   }
 
 }
