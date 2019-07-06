@@ -45,8 +45,8 @@ public class BasicRecipeControllerTest {
 
   @Test
   public void editRecipe() {
-    recipeController.editRecipe(1, TestObjectRepo.newRecipe);
-    verify(recipeRepository).editRecipe(1, null);
+    when(recipeRepository.editRecipe(1, TestObjectRepo.newRecipe)).thenReturn(TestObjectRepo.editedRecipe);
+    assertEquals(recipeController.editRecipe(1, TestObjectRepo.newRecipe), TestObjectRepo.editedRecipeResponse);
   }
 
 }

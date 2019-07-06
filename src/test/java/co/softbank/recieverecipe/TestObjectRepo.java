@@ -39,23 +39,24 @@ public class TestObjectRepo {
     .updatedAt(new Timestamp(getMillisecondFromDateString("2016-01-11 13:10:12")))
     .build();
 
-  public static Recipe newRecipe = Recipe.builder()
-    .id(3)
+  private static Recipe.RecipeBuilder newRecipeBase = Recipe.builder()
     .title("豚骨ラーメン")
     .makingTime("8時間")
     .serves("100人")
     .ingredients("玉ねぎ,肉,スパイス")
     .cost(50000)
     .createdAt(new Timestamp(Instant.now().getEpochSecond()))
-    .updatedAt(new Timestamp(Instant.now().getEpochSecond()))
-    .build();
+    .updatedAt(new Timestamp(Instant.now().getEpochSecond()));
+
+  public static Recipe newRecipe = newRecipeBase.id(3).build();
+  public static Recipe editedRecipe = newRecipeBase.id(1).build();
 
   public static List<Recipe> baseRecipeList = Arrays.asList(recipeOne, recipeTwo);
   public static AllRecipeResponse baseAllRecipesResponse = new AllRecipeResponse(baseRecipeList);
 
   public static RecipeResponse recipeOneResponse = new RecipeResponse(RecipeResponse.Message.RETRIEVED, TestObjectRepo.recipeOne);
-
-  public static Object newRecipeResponse = new RecipeResponse(RecipeResponse.Message.CREATED, TestObjectRepo.newRecipe);
+  public static RecipeResponse newRecipeResponse = new RecipeResponse(RecipeResponse.Message.CREATED, TestObjectRepo.newRecipe);
+  public static RecipeResponse editedRecipeResponse = new RecipeResponse(RecipeResponse.Message.UPDATED, TestObjectRepo.editedRecipe);
   
   private static long getMillisecondFromDateString(String dateString) {
     return LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
