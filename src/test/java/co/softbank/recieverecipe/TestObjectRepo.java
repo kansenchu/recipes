@@ -54,6 +54,9 @@ public class TestObjectRepo {
   public static List<Recipe> baseRecipeList = Arrays.asList(recipeOne, recipeTwo);
   public static AllRecipeResponse baseAllRecipesResponse = new AllRecipeResponse(baseRecipeList);
 
+  public static List<Recipe> addedRecipeList = Arrays.asList(recipeOne, recipeTwo, newRecipe);
+  public static List<Recipe> editedRecipeList = Arrays.asList(editedRecipe, recipeTwo);
+
   public static RecipeResponse recipeOneResponse = new RecipeResponse(RecipeResponse.Message.RETRIEVED, TestObjectRepo.recipeOne);
   public static RecipeResponse deletedRecipeOneResponse = new RecipeResponse(RecipeResponse.Message.DELETED, TestObjectRepo.recipeOne);
   public static RecipeResponse newRecipeResponse = new RecipeResponse(RecipeResponse.Message.CREATED, TestObjectRepo.newRecipe);
