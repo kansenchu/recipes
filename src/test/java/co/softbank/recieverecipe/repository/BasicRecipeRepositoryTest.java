@@ -44,9 +44,8 @@ public class BasicRecipeRepositoryTest {
 
   @Test
   public void editRecipe() {
-    Recipe editedRecipe = TestObjectRepo.editedRecipe;
-    basicRecipeRepo.editRecipe(1, editedRecipe);
-    assertEquals(editedRecipe, basicRecipeRepo.getRecipe(1));
+    basicRecipeRepo.editRecipe(1, TestObjectRepo.editRecipeData);
+    assertEquals(TestObjectRepo.editedRecipe, basicRecipeRepo.getRecipe(1));
     assertEquals(TestObjectRepo.editedRecipeList, basicRecipeRepo.getAllRecipes());
   }
 }

@@ -1,6 +1,8 @@
 package co.softbank.recieverecipe.models;
 
+import java.lang.reflect.Field;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import javax.validation.constraints.NotNull;
 
@@ -44,7 +46,27 @@ public class Recipe {
     return id; 
   }
 
-  public Object[] getParamsAsArray() {
-    return new Object[] {id, title, makingTime, serves, ingredients, cost, createdAt, updatedAt};
+  /**
+   * レシピのデータをDBに入れるためObject型のArrayListに変換する。
+   * @return
+   */
+  public ArrayList<Object> getParamsAsArray() {
+    ArrayList<Object> result = new ArrayList<>();
+    Field[] fields = this.getClass().getDeclaredFields();
+    for (Field field : fields) {
+      try {
+        Object value = field.get(this);
+        if (field.getType().isPrimitive()) {
+          if (((Number) value).doubleValue() != 0) {
+            result.add(value);
+          }
+        } else if (value != null) {
+          result.add(value);
+        }
+      } catch (IllegalArgumentException | IllegalAccessException e) {
+        e.printStackTrace();
+      }
+    }
+    return result;
   }
 }

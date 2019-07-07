@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class BasicRecipeRepository implements RecipeRepository {
   @Override
   public Recipe addRecipe(Recipe newRecipe) {
     jdbcTemplate.update("INSERT INTO recipes VALUES (?, ?, ?, ?, ?, ?, ? ,?)",
-      newRecipe.getParamsAsArray());
+      newRecipe.getParamsAsArray().toArray());
     return jdbcTemplate.queryForObject("SELECT * FROM recipes WHERE id = ?", 
       new Object[] {newRecipe.getId()},
       new RecipeMapper());
@@ -53,10 +54,12 @@ public class BasicRecipeRepository implements RecipeRepository {
    */
   @Override
   public Recipe editRecipe(int id, Recipe editedRecipe) {
+    ArrayList<Object> params = editedRecipe.getParamsAsArray();
+    params.add(id);
     jdbcTemplate.update("UPDATE recipes SET title = ?, making_time = ?,"
-      + "serves = ?, ingredients = ?, cost = ?,"
+      + " serves = ?, ingredients = ?, cost = ?,"
       + " created_at = ?, updated_at = ? WHERE id = ?",
-      editedRecipe.getParamsAsArray(), id);
+      params.toArray());
     return jdbcTemplate.queryForObject("SELECT * FROM recipes WHERE id = ?", 
     new Object[] {editedRecipe.getId()},
     new RecipeMapper());

@@ -48,6 +48,7 @@ public class TestObjectRepo {
     .createdAt(new Timestamp(Instant.now().getEpochSecond()))
     .updatedAt(new Timestamp(Instant.now().getEpochSecond()));
 
+  public static Recipe editRecipeData = newRecipeBase.build();
   public static Recipe newRecipe = newRecipeBase.id(3).build();
   public static Recipe editedRecipe = newRecipeBase.id(1).build();
 
