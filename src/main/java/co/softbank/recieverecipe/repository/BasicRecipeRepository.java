@@ -41,7 +41,11 @@ public class BasicRecipeRepository implements RecipeRepository {
    */
   @Override
   public Recipe addRecipe(Recipe newRecipe) {
-    return ;
+    jdbcTemplate.update("INSERT INTO recipes VALUES (?, ?, ?, ?, ?, ?, ? ,?)",
+      newRecipe.getParamsAsArray());
+    return jdbcTemplate.queryForObject("SELECT * FROM recipes WHERE id = ?", 
+      new Object[] {newRecipe.getId()},
+      new RecipeMapper());
   }
 
   /**

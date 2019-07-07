@@ -44,4 +44,8 @@ public class Recipe {
   public int getId() { 
     return id; 
   }
+
+  public Object[] getParamsAsArray() {
+    return new Object[] {id, title, makingTime, serves, ingredients, cost, createdAt, updatedAt};
+  }
 }
