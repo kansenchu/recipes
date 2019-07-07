@@ -1,11 +1,8 @@
 package co.softbank.recieverecipe.controller;
 
 import co.softbank.recieverecipe.models.Recipe;
-import co.softbank.recieverecipe.models.views.ResponseViews;
 import co.softbank.recieverecipe.responses.AllRecipeResponse;
 import co.softbank.recieverecipe.responses.RecipeResponse;
-
-import com.fasterxml.jackson.annotation.JsonView;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
