@@ -67,8 +67,10 @@ public class BasicRecipeRepository implements RecipeRepository {
    * {@inheritDoc}
    */
   @Override
-  public Recipe deleteRecipe(int i) {
-    return null;
+  public Recipe deleteRecipe(int id) {
+    Recipe toBeDeleted = getRecipe(id);
+    jdbcTemplate.update("DELETE FROM recipes WHERE id = ?", new Object[] {id});
+    return toBeDeleted;
   }
 
   private class RecipeMapper implements RowMapper<Recipe> {
