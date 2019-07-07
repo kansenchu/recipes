@@ -29,7 +29,7 @@ public interface RecipeController {
    * @param id 取得したいレシピのid
    * @return 取得したいレシピを包むレスポンス。
    */
-  @GetMapping
+  @GetMapping(value = "/{id}")
   public RecipeResponse getRecipe(int id);
 
   /**
