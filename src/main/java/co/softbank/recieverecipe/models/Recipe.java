@@ -6,6 +6,13 @@ import java.util.ArrayList;
 
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+import co.softbank.recieverecipe.models.views.RecipeViews;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -23,16 +30,30 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @EqualsAndHashCode
 @ToString
+@JsonTypeName("recipe")
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Recipe {
+  @JsonView(RecipeViews.IncludeId.class)
   private final int id;
+  
+  @JsonView(RecipeViews.ExcludeId.class)
   @NotNull
   private final String title;          /** レシピの名前。*/
+  
+  @JsonView(RecipeViews.ExcludeId.class)
   @NotNull
   private final String makingTime;     /** レシピの作り時間 。*/
+
+  @JsonView(RecipeViews.ExcludeId.class)
   @NotNull
   private final String serves;         /** レシピに対応する人数。*/
+
+  @JsonView(RecipeViews.ExcludeId.class)
   @NotNull
   private final String ingredients;    /** 材料リスト。Listではなく、String扱いとしています。*/
+
+  @JsonView(RecipeViews.ExcludeId.class)
   @NotNull
   private final int cost;              /** レシピの予測値段。*/
 

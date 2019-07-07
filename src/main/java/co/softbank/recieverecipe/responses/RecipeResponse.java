@@ -1,6 +1,10 @@
 package co.softbank.recieverecipe.responses;
 
 import co.softbank.recieverecipe.models.Recipe;
+import co.softbank.recieverecipe.models.views.ResponseViews;
+
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +18,10 @@ import lombok.RequiredArgsConstructor;
 @EqualsAndHashCode
 public class RecipeResponse {
 
+  @JsonView(ResponseViews.MessageOnly.class)
   final Message message;         /** 返すメッセージ。 */
+  
+  @JsonView(ResponseViews.MessageWithRecipe.class)
   final List<Recipe> recipe;    /** 実際にレシピリスト。 */
 
   public enum Message {
@@ -29,6 +36,7 @@ public class RecipeResponse {
       this.message = message;
     }
 
+    @JsonValue
     public String getMessage() {
       return message;
     }
