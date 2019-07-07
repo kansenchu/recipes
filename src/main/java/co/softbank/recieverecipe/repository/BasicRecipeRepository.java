@@ -32,10 +32,6 @@ public class BasicRecipeRepository implements RecipeRepository {
    */
   @Override
   public Recipe getRecipe(int id) {
-  //   return jdbcTemplate.query("SELECT * FROM recipes WHERE id = 1", (rs) -> {
-  //     rs.next();
-  //     return extractRecipeFromResultSet(rs);
-  //   });
     return jdbcTemplate.queryForObject("SELECT * FROM recipes WHERE id = ?", new Object[] {id},
       new RecipeMapper());
   }
