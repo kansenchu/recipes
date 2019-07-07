@@ -3,6 +3,8 @@ package co.softbank.recieverecipe.repository;
 import co.softbank.recieverecipe.models.Recipe;
 import lombok.RequiredArgsConstructor;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,16 +26,7 @@ public class BasicRecipeRepository implements RecipeRepository {
     return jdbcTemplate.query("SELECT * FROM recipes", (rs) -> {
       List<Recipe> result = new ArrayList<>();
       while (rs.next()) {
-        Recipe incomingRecipe = Recipe.builder()
-          .id(rs.getInt("id"))
-          .title(rs.getString("title"))
-          .makingTime(rs.getString("making_time"))
-          .serves(rs.getString("serves"))
-          .ingredients((rs.getString("ingredients")))
-          .cost(rs.getInt("cost"))
-          .createdAt(rs.getTimestamp("created_at"))
-          .updatedAt(rs.getTimestamp("updated_at"))
-          .build();
+        Recipe incomingRecipe = extractRecipeFromResultSet(rs);
         result.add(incomingRecipe);
       }
       return result;
@@ -47,16 +40,7 @@ public class BasicRecipeRepository implements RecipeRepository {
   public Recipe getRecipe(int id) {
     return jdbcTemplate.query("SELECT * FROM recipes WHERE id = 1", (rs) -> {
       rs.next();
-      return Recipe.builder()
-        .id(rs.getInt("id"))
-        .title(rs.getString("title"))
-        .makingTime(rs.getString("making_time"))
-        .serves(rs.getString("serves"))
-        .ingredients((rs.getString("ingredients")))
-        .cost(rs.getInt("cost"))
-        .createdAt(rs.getTimestamp("created_at"))
-        .updatedAt(rs.getTimestamp("updated_at"))
-        .build();
+      return extractRecipeFromResultSet(rs);
     });
   }
 
@@ -82,6 +66,19 @@ public class BasicRecipeRepository implements RecipeRepository {
   @Override
   public Recipe deleteRecipe(int i) {
     return null;
+  }
+
+  private Recipe extractRecipeFromResultSet(ResultSet rs) throws SQLException {
+    return Recipe.builder()
+        .id(rs.getInt("id"))
+        .title(rs.getString("title"))
+        .makingTime(rs.getString("making_time"))
+        .serves(rs.getString("serves"))
+        .ingredients((rs.getString("ingredients")))
+        .cost(rs.getInt("cost"))
+        .createdAt(rs.getTimestamp("created_at"))
+        .updatedAt(rs.getTimestamp("updated_at"))
+        .build();
   }
 
 }
