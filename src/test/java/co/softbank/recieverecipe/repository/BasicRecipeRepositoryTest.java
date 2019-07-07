@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
@@ -35,17 +36,19 @@ public class BasicRecipeRepositoryTest {
   }
 
   @Test
+  @DirtiesContext
   public void addRecipe() {
     Recipe newRecipe = TestObjectRepo.newRecipe;
-    basicRecipeRepo.addRecipe(newRecipe);
-    assertEquals(newRecipe, basicRecipeRepo.getRecipe(newRecipe.getId()));
+    Recipe actual = basicRecipeRepo.addRecipe(newRecipe);
+    assertEquals(newRecipe, actual);
     assertEquals(TestObjectRepo.addedRecipeList, basicRecipeRepo.getAllRecipes());
   }
 
   @Test
+  @DirtiesContext
   public void editRecipe() {
-    basicRecipeRepo.editRecipe(1, TestObjectRepo.editRecipeData);
-    assertEquals(TestObjectRepo.editedRecipe, basicRecipeRepo.getRecipe(1));
+    Recipe actual = basicRecipeRepo.editRecipe(1, TestObjectRepo.editRecipeData);
+    assertEquals(TestObjectRepo.editedRecipe, actual);
     assertEquals(TestObjectRepo.editedRecipeList, basicRecipeRepo.getAllRecipes());
   }
 }
