@@ -1,4 +1,4 @@
-CREATE TABLE recipes(
+CREATE TABLE recipes (
   id SERIAL,
   title VARCHAR(50),
   making_time VARCHAR(50),
@@ -7,4 +7,4 @@ CREATE TABLE recipes(
   cost integer,
   created_at timestamp,
   updated_at timestamp
-)
+);

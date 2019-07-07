@@ -7,6 +7,7 @@ import co.softbank.recieverecipe.responses.RecipeResponse;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,8 +30,8 @@ public interface RecipeController {
    * @param id 取得したいレシピのid
    * @return 取得したいレシピを包むレスポンス。
    */
-  @GetMapping(value = "/{id}")
-  public RecipeResponse getRecipe(int id);
+  @GetMapping("/{id}")
+  public RecipeResponse getRecipe(@PathVariable int id);
 
   /**
    * 新しいレシピを登録するメソッド。

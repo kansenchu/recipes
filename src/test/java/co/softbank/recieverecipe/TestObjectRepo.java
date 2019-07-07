@@ -18,15 +18,15 @@ import java.util.stream.Collectors;
  */
 public class TestObjectRepo {
   public static Recipe recipeOne = Recipe.builder()
-      .id(1)
-      .title("チキンカレー")
-      .makingTime("45分")
-      .serves("4人")
-      .ingredients("玉ねぎ,肉,スパイス")
-      .cost(1000)
-      .createdAt(new Timestamp(getMillisecondFromDateString("2016-01-10 12:10:12")))
-      .updatedAt(new Timestamp(getMillisecondFromDateString("2016-01-10 12:10:12")))
-      .build();
+    .id(1)
+    .title("チキンカレー")
+    .makingTime("45分")
+    .serves("4人")
+    .ingredients("玉ねぎ,肉,スパイス")
+    .cost(1000)
+    .createdAt(getMillisecondFromDateString("2016-01-10 12:10:12"))
+    .updatedAt(getMillisecondFromDateString("2016-01-10 12:10:12"))
+    .build();
 
   public static Recipe recipeTwo = Recipe.builder()
     .id(2)
@@ -35,8 +35,8 @@ public class TestObjectRepo {
     .serves("2人")
     .ingredients("玉ねぎ,卵,スパイス,醤油")
     .cost(700)
-    .createdAt(new Timestamp(getMillisecondFromDateString("2016-01-11 13:10:12")))
-    .updatedAt(new Timestamp(getMillisecondFromDateString("2016-01-11 13:10:12")))
+    .createdAt(getMillisecondFromDateString("2016-01-11 13:10:12"))
+    .updatedAt(getMillisecondFromDateString("2016-01-11 13:10:12"))
     .build();
 
   private static Recipe.RecipeBuilder newRecipeBase = Recipe.builder()
@@ -59,8 +59,9 @@ public class TestObjectRepo {
   public static RecipeResponse newRecipeResponse = new RecipeResponse(RecipeResponse.Message.CREATED, TestObjectRepo.newRecipe);
   public static RecipeResponse editedRecipeResponse = new RecipeResponse(RecipeResponse.Message.UPDATED, TestObjectRepo.editedRecipe);
   
-  private static long getMillisecondFromDateString(String dateString) {
-    return LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-             .atZone(ZoneId.systemDefault()).toEpochSecond();
+  private static Timestamp getMillisecondFromDateString(String dateString) {
+    // return LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+    //          .atZone(ZoneId.systemDefault()).toEpochSecond();
+    return Timestamp.valueOf(LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
   }
 }

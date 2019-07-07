@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 /**
  * DBとやりとりする時使うレシピクラス。
@@ -19,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class Recipe {
   @NotNull
   private final int id;
