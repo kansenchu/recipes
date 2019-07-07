@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
