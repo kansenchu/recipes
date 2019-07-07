@@ -61,8 +61,8 @@ public class BasicRecipeRepository implements RecipeRepository {
       + " created_at = ?, updated_at = ? WHERE id = ?",
       params.toArray());
     return jdbcTemplate.queryForObject("SELECT * FROM recipes WHERE id = ?", 
-    new Object[] {editedRecipe.getId()},
-    new RecipeMapper());
+      new Object[] {id},
+      new RecipeMapper());
   }
 
   /**
