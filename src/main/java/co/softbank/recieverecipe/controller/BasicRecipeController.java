@@ -5,9 +5,9 @@ import co.softbank.recieverecipe.models.views.ResponseViews;
 import co.softbank.recieverecipe.repository.RecipeRepository;
 import co.softbank.recieverecipe.responses.AllRecipeResponse;
 import co.softbank.recieverecipe.responses.RecipeResponse;
-import lombok.RequiredArgsConstructor;
-
 import com.fasterxml.jackson.annotation.JsonView;
+
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,8 +52,8 @@ public class BasicRecipeController implements RecipeController {
    */
   @Override
   @JsonView(ResponseViews.MessageWithRecipe.class)
-  public RecipeResponse editRecipe(int i, Recipe editedRecipe) {
-    return new RecipeResponse(RecipeResponse.Message.UPDATED, recipeRepository.editRecipe(i, editedRecipe));
+  public RecipeResponse editRecipe(int id, Recipe editedRecipe) {
+    return new RecipeResponse(RecipeResponse.Message.UPDATED, recipeRepository.editRecipe(id, editedRecipe));
   }
 
   /**

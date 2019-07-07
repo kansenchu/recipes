@@ -52,7 +52,7 @@ public interface RecipeController {
    * @return 変更したレシピ
    */
   @PatchMapping("/{id}")
-  public RecipeResponse editRecipe(@PathVariable id, @RequestBody Recipe recipe);
+  public RecipeResponse editRecipe(@PathVariable int id, @RequestBody Recipe recipe);
 
   /**
    * レシピを削除するメソッド。
