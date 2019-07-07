@@ -60,8 +60,6 @@ public class TestObjectRepo {
   public static RecipeResponse editedRecipeResponse = new RecipeResponse(RecipeResponse.Message.UPDATED, TestObjectRepo.editedRecipe);
   
   private static Timestamp getMillisecondFromDateString(String dateString) {
-    // return LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-    //          .atZone(ZoneId.systemDefault()).toEpochSecond();
     return Timestamp.valueOf(LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
   }
 }
