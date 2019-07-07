@@ -29,16 +29,16 @@ public interface RecipeRepository {
 
   /**
    * レシピを変更するメソッド。
-   * @param i 変更したいレシピのid
+   * @param id 変更したいレシピのid
    * @param editedRecipe 変更したいレシピの内容
    * @return 実際に変更したレシピのオブジェクト
    */
-  public Recipe editRecipe(int i, Recipe editedRecipe);
+  public Recipe editRecipe(int id, Recipe editedRecipe);
 
   /**
    * レシピを削除するメソッド。
-   * @param i 削除したいレシピのid
+   * @param id 削除したいレシピのid
    */
-  public Recipe deleteRecipe(int i);
+  public Recipe deleteRecipe(int id);
 
 }

@@ -52,8 +52,14 @@ public class BasicRecipeRepository implements RecipeRepository {
    * {@inheritDoc}
    */
   @Override
-  public Recipe editRecipe(int i, Recipe editedRecipe) {
-    return null;
+  public Recipe editRecipe(int id, Recipe editedRecipe) {
+    jdbcTemplate.update("UPDATE recipes SET title = ?, making_time = ?,"
+      + "serves = ?, ingredients = ?, cost = ?,"
+      + " created_at = ?, updated_at = ? WHERE id = ?",
+      editedRecipe.getParamsAsArray(), id);
+    return jdbcTemplate.queryForObject("SELECT * FROM recipes WHERE id = ?", 
+    new Object[] {editedRecipe.getId()},
+    new RecipeMapper());
   }
 
   /**

@@ -22,7 +22,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Recipe {
-  @NotNull
   private final int id;
   @NotNull
   private final String title;          /** レシピの名前。*/
