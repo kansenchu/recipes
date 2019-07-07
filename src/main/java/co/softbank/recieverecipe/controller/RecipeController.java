@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -42,7 +43,7 @@ public interface RecipeController {
    * @return 登録したレシピのレスポンス
    */
   @PostMapping
-  public RecipeResponse addRecipe(Recipe recipe);
+  public RecipeResponse addRecipe(@RequestBody Recipe recipe);
 
   /**
    * レシピを変換することを取り受けるメソッド。
@@ -50,14 +51,14 @@ public interface RecipeController {
    * @param recipe 変更したレシピの情報
    * @return 変更したレシピ
    */
-  @PatchMapping
-  public RecipeResponse editRecipe(int id, Recipe recipe);
+  @PatchMapping("/{id}")
+  public RecipeResponse editRecipe(@PathVariable id, @RequestBody Recipe recipe);
 
   /**
    * レシピを削除するメソッド。
    * @param id 削除したいレシピのid
    * @return 削除されたレシピの情報を含んでるレスポンス
    */
-  @DeleteMapping
-  public RecipeResponse deleteRecipe(int id);
+  @DeleteMapping("/{id}")
+  public RecipeResponse deleteRecipe(@PathVariable int id);
 }
