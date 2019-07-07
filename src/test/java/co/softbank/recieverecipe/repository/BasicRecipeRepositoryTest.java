@@ -51,4 +51,12 @@ public class BasicRecipeRepositoryTest {
     assertEquals(TestObjectRepo.editedRecipe, actual);
     assertEquals(TestObjectRepo.editedRecipeList, basicRecipeRepo.getAllRecipes());
   }
+
+  @Test
+  @DirtiesContext
+  public void deleteRecipe() {
+    Recipe actual = basicRecipeRepo.deleteRecipe(1);
+    assertEquals(TestObjectRepo.recipeOne, actual);
+    assertEquals(TestObjectRepo.deletedRecipeList, basicRecipeRepo.getAllRecipes());
+  }
 }
