@@ -40,4 +40,6 @@ public class Recipe {
 
   /** レシピの作成時間。 */
   private Timestamp updatedAt;
+
+  public int getId() { return id; }
 }

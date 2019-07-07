@@ -33,4 +33,11 @@ public class BasicRecipeRepositoryTest {
   public void getRecipe() {
     assertEquals(basicRecipeRepo.getRecipe(1), TestObjectRepo.recipeOne);
   }
+
+  @Test
+  public void addRecipe() {
+    Recipe newRecipe = TestObjectRepo.newRecipe;
+    basicRecipeRepo.addRecipe(newRecipe);
+    assertEquals(newRecipe, basicRecipeRepo.getRecipe(newRecipe.getId()));
+  }
 }
